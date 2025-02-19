@@ -198,4 +198,117 @@
   - **Round Limit:**  
     The negotiation process supports up to 3 rounds unless an offer is accepted prior to reaching the limit.
 
+
+## Additional Endpoints: Job Extraction Sessions
+
+These endpoints facilitate the extraction of job details from a provided context by leveraging NLP.
+
+### H. Create a New Job Extraction Session
+- **URL:**  
+  `http://127.0.0.1:9100/job_extraction/sessions`
+- **Method:** `POST`
+- **Description:**  
+  Creates a new session using the provided context. The API extracts full job details and mandatory information (`job_title`, `employment_type`, `salary`). Missing mandatory fields are listed in the response.
+- **Sample Payload:**
+  ```json
+  {
+    "context": "We are looking for a Software Engineer to join our dynamic team. The role is full-time with a competitive salary and offers a flexible, remote work environment."
+  }
+  ```
+- **Sample Response:**
+  ```json
+  {
+    "session_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "session_data": {
+      "context": "We are looking for a Software Engineer to join our dynamic team. The role is full-time with a competitive salary and offers a flexible, remote work environment.",
+      "job_details": {
+        "job_title": "Software Engineer",
+        "location": "Remote",
+        "work_environment": "Remote",
+        "physical_demands": "None"
+      },
+      "mandatory_info": {
+        "job_title": "Software Engineer",
+        "employment_type": "Full-Time",
+        "salary": "Competitive"
+      },
+      "missing_fields": [],
+      "complete": true
+    }
+  }
+  ```
+
 ---
+
+### I. Provide Additional Input for a Session
+- **URL:**  
+  `http://127.0.0.1:9100/job_extraction/sessions/{session_id}/input`
+- **Method:** `POST`
+- **Description:**  
+  Appends additional input to an existing session and re-runs the extraction for mandatory job details.
+- **Sample Payload:**
+  ```json
+  {
+    "input": "The candidate must also have experience with Python and cloud platforms."
+  }
+  ```
+- **Sample Response:**
+  ```json
+  {
+    "session_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "session_data": {
+      "context": "We are looking for a Software Engineer to join our dynamic team. The role is full-time with a competitive salary and offers a flexible, remote work environment. The candidate must also have experience with Python and cloud platforms.",
+      "job_details": {
+        "job_title": "Software Engineer",
+        "location": "Remote",
+        "work_environment": "Remote",
+        "physical_demands": "None"
+      },
+      "mandatory_info": {
+        "job_title": "Software Engineer",
+        "employment_type": "Full-Time",
+        "salary": "Competitive"
+      },
+      "missing_fields": [],
+      "complete": true
+    }
+  }
+  ```
+
+---
+
+### J. Get Session Status
+- **URL:**  
+  `http://127.0.0.1:9100/job_extraction/sessions/{session_id}`
+- **Method:** `GET`
+- **Description:**  
+  Retrieves the current state of the session, including complete job details and mandatory information if extraction is complete, or a list of missing mandatory fields.
+- **Sample Response:**
+  ```json
+  {
+    "session_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "session_data": {
+      "context": "We are looking for a Software Engineer to join our dynamic team...",
+      "job_details": {
+        "job_title": "Software Engineer",
+        "location": "Remote",
+        "work_environment": "Remote",
+        "physical_demands": "None"
+      },
+      "mandatory_info": {
+        "job_title": "Software Engineer",
+        "employment_type": "Full-Time",
+        "salary": "Competitive"
+      },
+      "missing_fields": [],
+      "complete": true
+    }
+  }
+  ```
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+```
