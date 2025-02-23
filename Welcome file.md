@@ -45,7 +45,7 @@
 
 ### A. Job Description Optimization Endpoint
 - **URL:**  
-  `http://127.0.0.1:9100/job/optimize_seo`
+  `http://127.0.0.1:9100/job/job_description`
 - **Method:** `POST`
 - **Sample Payload:**
   ```json
