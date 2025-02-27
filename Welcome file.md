@@ -249,7 +249,7 @@ These endpoints facilitate the extraction of job details from a provided context
 - **Sample Payload:**
   ```json
   {
-    "input": "The candidate must also have experience with Python and cloud platforms."
+    "context": "The candidate must also have experience with Python and cloud platforms."
   }
   ```
 - **Sample Response:**
