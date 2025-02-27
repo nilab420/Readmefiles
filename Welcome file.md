@@ -77,7 +77,8 @@
     "work_environment": "Hybrid (Remote and Office-based)",
     "physical_demands": "No specific physical demands.",
     "location": "San Francisco, CA",
-    "benefits": "Salary is 1000, health insurance, 401(k), paid time off, and professional development opportunities."
+    "benefits": "Salary is 1000, health insurance, 401(k), paid time off, and professional development opportunities.",
+    "salary": 2000
   }
   ```
 ### B. Job Comparison Endpoint
