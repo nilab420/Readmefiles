@@ -1,0 +1,7 @@
+| Step           | Endpoint                                      |
+|----------------|-----------------------------------------------|
+| 1st            | `/job_extraction/sessions`                    |
+| 2nd (optional) | `/job_extraction/sessions/{session_id}/input` |
+| 3rd            | `/job/job_description`                        |
+| 4th            | `/jobs`                                       |
+| 5th            | `/final_offer/offer-letter/`                  |
