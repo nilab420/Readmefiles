@@ -156,7 +156,7 @@
     "candidate_email": "johndoe@example.com"
   },
   "job_id": "qwer"
-}
+   }
   ```
 
 ### E. Database – Job Insertion Endpoint
