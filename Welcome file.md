@@ -148,7 +148,16 @@
   `http://127.0.0.1:9100/final_offer/offer-letter/`
 - **Method:** `POST`
 - **Payload:**  
-  The payload structure is identical to the **Final Offer Approval Request** payload.
+  ```json
+  {
+  "candidate": {
+    "candidate_name": "John Doe",
+    "candidate_address": "123 Main St, Springfield",
+    "candidate_email": "johndoe@example.com"
+  },
+  "job_id": "qwer"
+}
+  ```
 
 ### E. Database – Job Insertion Endpoint
 - **URL:**  
